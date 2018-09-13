@@ -1,2 +1,2 @@
 # TileBasedGame
-Simple tile based game
+Simple tile-based game
