@@ -25,11 +25,7 @@ class Game:
         #Initialize all the variables for the game
         self.all_sprites = pg.sprite.Group()
         self.players = pg.sprite.Group()
-        self.zombies = pg.sprite.Group()
         self.walls = pg.sprite.Group()
-
-
-        self.zombie = Zombie(self, 10,10)
 
         for row, tiles in enumerate(self.map_data):
             for col,tile in enumerate(tiles):
@@ -37,8 +33,6 @@ class Game:
                     Wall(self, col, row)
                 if tile == 'P':
                     self.player = Player(self, col, row)
-                if tile == 'Z':
-                    self.zombie = Zombie(self, col, row)
 
     def run(self):
         self.playing = True
@@ -74,15 +68,6 @@ class Game:
             if event.type == pg.KEYDOWN:
                 if event.key == pg.K_ESCAPE:
                     self.quit()
-                if event.key == pg.K_LEFT:
-                    self.player.move(dx = -1)
-                if event.key == pg.K_RIGHT:
-                    self.player.move(dx=1)
-                if event.key == pg.K_UP:
-                    self.player.move(dy=-1)
-                if event.key == pg.K_DOWN:
-                    self.player.move(dy = 1)
-                self.zombie.move(dx = 1, dy = 1)
 
     def show_start_screen(self):
         pass
